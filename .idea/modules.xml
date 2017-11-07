@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/zhiquan-common/zhiquan-common.iml" filepath="$PROJECT_DIR$/zhiquan-common/zhiquan-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhiquan-manage/zhiquan-mamage-web/zhiquan-mamage-web.iml" filepath="$PROJECT_DIR$/zhiquan-manage/zhiquan-mamage-web/zhiquan-mamage-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhiquan-manage/zhiquan-manage.iml" filepath="$PROJECT_DIR$/zhiquan-manage/zhiquan-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhiquan-manage/zhiquan-manage-mapper/zhiquan-manage-mapper.iml" filepath="$PROJECT_DIR$/zhiquan-manage/zhiquan-manage-mapper/zhiquan-manage-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhiquan-manage/zhiquan-manage-pojo/zhiquan-manage-pojo.iml" filepath="$PROJECT_DIR$/zhiquan-manage/zhiquan-manage-pojo/zhiquan-manage-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhiquan-manage/zhuiquan-manage-service/zhiquan-manage-service.iml" filepath="$PROJECT_DIR$/zhiquan-manage/zhuiquan-manage-service/zhiquan-manage-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zhiquan-parent/zhiquan-parent.iml" filepath="$PROJECT_DIR$/zhiquan-parent/zhiquan-parent.iml" />
+    </modules>
+  </component>
+</project>
