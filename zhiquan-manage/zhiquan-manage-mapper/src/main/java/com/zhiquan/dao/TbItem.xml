@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhiqan.dao.TbItemDao" >
+  <resultMap id="itemMap" type="com.zhiqan.model.TbItem" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="sell_point" property="sellPoint" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="BIGINT" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="barcode" property="barcode" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="cid" property="cid" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="updated" property="updated" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="zhiquan_criteria" >
+    <if test="ids != null"> AND id in
+      <foreach collection="ids" item="id" open="(" close=")" separator="," >#{id}</foreach>
+    </if>
+    <if test="title !=null">AND title Like CONCAT(#{title},'%')</if>
+    <if test="sellPoint !=null">AND title Like CONCAT(#{sellPoint},'%')</if>
+    <if test="createFrom !=null">AND <![CDATA[created>=#{createFrom}]]> </if>
+    <if test="createTo !=null">AND <![CDATA[created<=#{createdTo}]]> </if>
+    <if test="status != null"> AND id in
+      <foreach collection="status" item="st" open="(" close=")" separator="," >#{st}</foreach>
+    </if>
+  </sql>
+
+  <sql id="insert_columns">
+    <set>
+      <if test="id !=null">
+        id,
+      </if>
+      <if test="title !=null">
+        title,
+      </if>
+      <if test="sellpoint !=null">
+        sellpoint,
+      </if>
+      <if test="price !=null">
+        price,
+      </if>
+      <if test="num !=null">
+        num,
+      </if>
+      <if test="barcode !=null">
+        barcode,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="cid !=null">
+        cid,
+      </if>
+      <if test="status !=null">
+        status,
+      </if>
+        created,
+        updated
+    </set>
+  </sql>
+
+  <sql id="set_columns">
+    <set>
+      <if test="title !=null">
+        title=#{title},
+      </if>
+      <if test="sellpoint !=null">
+        sellpoint=#{sellpoint},
+      </if>
+      <if test="price !=null">
+        price=#{price},
+      </if>
+      <if test="num !=null">
+        num=#{num},
+      </if>
+      <if test="image != null">
+        image=#{image}
+      </if>
+      <if test="status !=null">
+        status=#{status},
+      </if>
+        updated=sysdate()
+    </set>
+  </sql>
+
+  <sql id="columns">
+    id,title,sellpoint,price,num,barcode,image,cid,status,created,updated
+  </sql>
+
+  <select id="seelctBycreate" parameterType="map" resultMap="itemMap" >
+    select
+    <include refid="columns" />
+    from tb_item
+    where 1=1
+    <include refid="zhiquan_criteria" />
+    order by #{orderby}
+    <if test="orderType == 0">asc</if>
+    <if test="orderType == 1">desc</if>
+    limit #{offset},#{limit}
+  </select>
+
+  <insert id="insert" parameterType="map">
+    insert into db_item(
+    <include refid="insert_columns" />)
+    values
+      (<set>
+    <if test="id !=null">
+      #{id},
+    </if>
+    <if test="title !=null">
+      #{title},
+    </if>
+    <if test="sellpoint !=null">
+      #{sellpoint},
+    </if>
+    <if test="price !=null">
+      #{price},
+    </if>
+    <if test="num !=null">
+      #{num},
+    </if>
+    <if test="barcode !=null">
+      #{barcode},
+    </if>
+    <if test="image != null">
+      #{image},
+    </if>
+    <if test="cid !=null">
+      #{cid},
+    </if>
+    <if test="status !=null">
+      #{status},
+    </if>
+    sysdate(),
+    sysdate()
+    </set>)
+  </insert>
+
+  <update id="updateById" parameterType="map">
+    update db_item
+    set
+    <include refid="set_columns" />
+    where id=#{id}
+  </update>
+
+  <delete id="deleteByIds" parameterType="map">
+    delete from db_item where id in
+    <foreach collection="ids" open="(" close=")" separator="," item="id">
+      #{id}
+    </foreach>
+  </delete>
+</mapper>

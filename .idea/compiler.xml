@@ -17,6 +17,26 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zhiquan-common" />
+        <module name="zhiquan-mamage-web" />
+        <module name="zhiquan-manage-mapper" />
+        <module name="zhiquan-manage-pojo" />
+        <module name="zhiquan-manage-service" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zhiquan-common" target="1.8" />
+      <module name="zhiquan-mamage-web" target="1.8" />
+      <module name="zhiquan-manage" target="1.8" />
+      <module name="zhiquan-manage-mapper" target="1.8" />
+      <module name="zhiquan-manage-pojo" target="1.8" />
+      <module name="zhiquan-manage-service" target="1.8" />
+      <module name="zhiquan-parent" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

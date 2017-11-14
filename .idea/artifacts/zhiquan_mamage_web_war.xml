@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zhiquan-mamage-web:war">
+    <output-path>$PROJECT_DIR$/zhiquan-manage/zhiquan-mamage-web/target</output-path>
+    <root id="archive" name="zhiquan-mamage-web.war">
+      <element id="artifact" artifact-name="zhiquan-mamage-web:war exploded" />
+    </root>
+  </artifact>
+</component>

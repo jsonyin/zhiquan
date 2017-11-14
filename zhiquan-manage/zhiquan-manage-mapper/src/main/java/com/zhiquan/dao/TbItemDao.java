@@ -1,5 +1,10 @@
 package com.zhiquan.dao;
 
-public class TbItemDao {
+import com.zhiquan.model.TbItem;
+
+public interface TbItemDao {
+
+     TbItem selectByPrimaryKey(Long id);
+
 
 }
